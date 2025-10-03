@@ -1,39 +1,34 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Virtual Agent Test</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ServiceNow Virtual Agent — Demo</title>
+
+  <!-- Portable Virtual Agent Web Client (chat bubble) -->
+  <script src="https://dev228999.service-now.com/scripts/now-requestor-chat-popover-app/now-requestor-chat-popover-app.min.js?sysparm_substitute=false"></script>
   <style>
-    body {
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      min-height:100vh;
-      margin:0;
-      background:#f4f4f9;
-    }
-    .card {
-      width:420px;
-      height:640px;
-      background:#fff;
-      border:1px solid #ddd;
-      border-radius:12px;
-      overflow:hidden;
-      box-shadow:0 4px 12px rgba(0,0,0,.12);
-    }
-    iframe { width:100%; height:100%; border:0; }
+    body { font-family: system-ui, Arial, sans-serif; padding: 2rem; line-height: 1.45; }
+    .box { max-width: 720px; margin: 0 auto; }
   </style>
 </head>
 <body>
-  <div class="card">
-   <iframe
-  src="https://dev331729.service-now.com/%24sn-va-web-client-app"
-  style="border:0; width:420px; height:640px"
-  allow="microphone; camera"
-  referrerpolicy="strict-origin-when-cross-origin"
-  title="VA">
-</iframe>
+  <div class="box">
+    <h1>Demo Virtual Agent (ServiceNow)</h1>
+    <p>Questa pagina GitHub Pages integra il Virtual Agent come “chat bubble”.</p>
   </div>
+
+  <script>
+    // Inizializza il widget puntando alla tua istanza (o al tuo custom URL)
+    const chat = new ServiceNowChat({
+      instance: 'https://dev228999.service-now.com',
+      // Opzionali, utili per demo
+      context: { skip_load_history: 1 },
+      position: 'right',    // 'left' | 'right'
+      offsetX: 24,
+      offsetY: 24,
+      // branding: { bgColor:'#222', primaryColor:'#0b5fff' } // personalizzazioni facoltative
+    });
+  </script>
 </body>
 </html>
