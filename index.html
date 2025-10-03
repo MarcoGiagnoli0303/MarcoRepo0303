@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Test Virtual Agent</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: #f4f4f9;
+    }
+    #va-widget {
+      width: 420px;
+      height: 640px;
+      border: 1px solid #ccc;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      background: white;
+    }
+  </style>
+</head>
+<body>
+  <div id="va-widget"></div>
+
+  <!-- Loader SDK dal tuo instance ServiceNow -->
+  <script src="https://dev331729.service-now.com/sn_va_web_client_script_loader.jsdbx"></script>
+  <script>
+    window.addEventListener('load', async () => {
+      const vaWebClient = new window.SnVaWebClient({
+        instance: "<LA-TUA-ISTANZA>",             // es: dev12345
+        // channel: "web",                        // se hai chiamato così il canale
+        configId: "<SYS_ID_WEB_CLIENT_CONFIG>",  // più robusto se lo recuperi dalla tabella 'va_web_client_config'
+        containerId: "va-widget",
+        launcher: { enabled: true }
+      });
+      await vaWebClient.render();
+    });
+  </script>
+</body>
+</html>
