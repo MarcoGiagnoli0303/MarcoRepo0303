@@ -5,11 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>ServiceNow Virtual Agent — Demo</title>
 
-  <!-- Portable Virtual Agent Web Client (chat bubble) -->
-  <script src="https://dev228999.service-now.com/scripts/now-requestor-chat-popover-app/now-requestor-chat-popover-app.min.js?sysparm_substitute=false"></script>
   <style>
     body { font-family: system-ui, Arial, sans-serif; padding: 2rem; line-height: 1.45; }
     .box { max-width: 720px; margin: 0 auto; }
+
+    /* Stile per l'iframe flottante */
+    #va-frame {
+      position: fixed;
+      right: 16px;
+      bottom: 16px;
+      width: 360px;
+      height: 560px;
+      border: 0;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.2);
+      z-index: 9999;
+    }
   </style>
 </head>
 <body>
@@ -18,17 +29,4 @@
     <p>Questa pagina GitHub Pages integra il Virtual Agent come “chat bubble”.</p>
   </div>
 
-  <script>
-    // Inizializza il widget puntando alla tua istanza (o al tuo custom URL)
-    const chat = new ServiceNowChat({
-      instance: 'https://dev228999.service-now.com',
-      // Opzionali, utili per demo
-      context: { skip_load_history: 1 },
-      position: 'right',    // 'left' | 'right'
-      offsetX: 24,
-      offsetY: 24,
-      // branding: { bgColor:'#222', primaryColor:'#0b5fff' } // personalizzazioni facoltative
-    });
-  </script>
-</body>
-</html>
+  <!-- Iframe con il client standalone del Virtua
